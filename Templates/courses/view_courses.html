@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Courses{% endblock %} 
+{% block content %}
+<!-- Search bar for users to find a particular course -->
+<form method="post" class="input-group my-2 px-2">
+    {% csrf_token %}
+    <input type="search" class="form-control" placeholder="Search" name="search" aria-describedby="search_button">
+    <!-- Two Buttons: One to clear the filter, and one to add a filter (search) -->
+    <a class="btn btn-secondary" href="{% url 'view_courses' %}" style="width: 100px !important;">Clear</a>
+    <input class="btn btn-primary" type="submit" id="search_button" style="width: 100px !important;" value="Search">
+</form>
+
+<span class="fw-bold fs-6 px-2">{{search_message}}</span>
+
+<!-- All Courses are displayed to user -->
+<div class="container">
+    <div class="row row-cols-lg-2 row-cols-sm-1">
+    {% for course in courses %}
+        <div class="col-sm my-2">
+            <div class="container bg-primary text-center text-break p-3">
+                <span class="fs-4 fw-bold d-block">{{course.title}}</span>
+                <span class="fw-bold d-block">{{course.description|truncatechars:80}}</span>
+                <!-- Button to begin the selected course -->
+                <a class="btn btn-success rounded-3 m-2" href="{% url 'course_overview' course.course_id %}">Start Course</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+
+

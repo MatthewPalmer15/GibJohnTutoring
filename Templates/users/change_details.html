@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Change Account Details{% endblock %} 
+{% block content %}
+
+<!-- Displays any errors that the Form gives back -->
+{% if form.errors %}
+<div class="alert alert-danger" style="text-decoration: none; list-style: none;">
+    <span class="fs-6">{{form.username.errors}}</span>
+    <span class="fs-6">{{form.first_name.errors}}</span>
+    <span class="fs-6">{{form.last_name.errors}}</span>
+    <span class="fs-6">{{form.email.errors}}</span> 
+</div>
+{% endif %}
+
+<!-- Form that changes the details of the user's account -->
+<h3 class="h3 text-center my-4">Change Account Details</h3>
+<form method="post" class="text-center">
+    {% csrf_token %}
+
+    <span class="form-label fw-bold">Username</span>
+    {{form.username}}
+    <span class="form-label fw-bold">First Name</span>
+    {{form.first_name}}
+    <span class="form-label fw-bold">Last Name</span>
+    {{form.last_name}}
+    <span class="form-label fw-bold">Email</span>
+    {{form.email}}
+
+    <div class="d-block">
+        <input class="btn btn-primary my-2 me-2" style="width:150px;" type="submit" value="Confirm Details">
+        <a class="btn btn-secondary my-2 ms-2" style="width:150px;" href="{% url 'user_view' %}">Back</a>    
+    </div>
+</form>
+{% endblock %}

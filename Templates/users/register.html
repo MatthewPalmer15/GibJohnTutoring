@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Register{% endblock %} 
+{% block content %}
+
+<!-- Displays any errors that the Form gives back -->
+{% if form.errors %}
+<div class="alert alert-danger" style="text-decoration: none; list-style: none;">
+    <span class="fs-6">{{form.username.errors}}</span>
+    <span class="fs-6">{{form.first_name.errors}}</span>
+    <span class="fs-6">{{form.last_name.errors}}</span>
+    <span class="fs-6">{{form.email.errors}}</span>
+    <span class="fs-6">{{form.password.errors}}</span>  
+    <span class="fs-6">{{form.password2.errors}}</span>  
+</div>
+{% endif %}
+
+<!-- The form that allows the user to enter their details in order to create an account -->
+<h3 class="h3 text-center my-4">Create a new account</h3>
+<form method="post" class="text-center">
+    {% csrf_token %}
+
+    {{form.username}}
+    {{form.first_name}}
+    {{form.last_name}}
+    {{form.email}}
+    {{form.password1}}
+    {{form.password2}}
+    
+    <div class="d-block">
+        <p class="text-secondary">By Registering with us, you automatically agree to our <a class="link-secondary" href="{% url 'policy' %}">Privacy Policy</a></p>
+        <input class="btn btn-primary my-2" style="width:100px;" type="submit" value="Register">
+        <p class="text-light">Aleady Have Account? <a class="link-light" href="{% url 'login' %}">Click Here!</a></p>
+    </div>
+</form>
+{% endblock %}
+

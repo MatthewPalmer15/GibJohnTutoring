@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %} 
+{% block content %}
+
+<!-- Introduction text placeholder to inform users coming onto the webpage the purpose of GibJohn Tutoring -->
+<p class="fs-5">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id diam vitae lectus pellentesque efficitur ut tempus velit. Sed tellus mi, 
+    congue vitae pharetra pellentesque, hendrerit ut mi. Aenean non pellentesque metus, nec blandit tellus. Vivamus gravida at dolor eu volutpat. 
+    Curabitur porta arcu est, id rhoncus lorem maximus ultrices. Curabitur tortor magna, fermentum eu lacinia et, tempor efficitur dui. Duis facilisis 
+    scelerisque vulputate. Ut accumsan, urna eu sagittis viverra, neque eros scelerisque nisi, vitae blandit odio turpis nec ante. Morbi imperdiet 
+    feugiat diam in pulvinar.
+</p>
+
+
+<div class="container">
+    <div class="row row-cols-auto text-center">
+        <div class="col my-3">
+            <!-- Card that points out a benefit to GibJohn Tutoring: Collaboration -->
+            <div class="card bg-dark border-0 rounded-3" style="width: 25rem;">
+                <img src="{% static 'images/website/index_main_1.jpg' %}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Collaboration</h5>
+                    <p class="card-text">Collaborate and be competitive with your friends!</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-3">
+            <!-- Card that points out a benefit to GibJohn Tutoring: Range of Subjects -->
+            <div class="card bg-dark border-0 rounded-3" style="width: 25rem;">
+                <img src="{% static 'images/website/index_main_2.jpg' %}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Range of Subjects</h5>
+                    <p class="card-text">Search and learn the subjects you love provided by GibJohn Tutoring</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-3">
+            <!-- Card that points out a benefit to GibJohn Tutoring: Gamified Learning -->
+            <div class="card bg-dark border-0 rounded-3" style="width: 25rem;">
+                <img src="{% static 'images/website/index_main_3.jpg' %}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Gamified Learning</h5>
+                    <p class="card-text">Collect Trophies as you progress the different courses</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

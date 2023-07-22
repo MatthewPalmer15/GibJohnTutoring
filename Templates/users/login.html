@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Log in{% endblock %} 
+{% block content %}
+
+<!-- If any errors occur, it will display a message -->
+{% if error_message %}
+    <div class="alert alert-danger my-2">
+        {{error_message}}
+    </div>
+{% endif %}
+
+<!-- The form that allows users to log into their account -->
+<h3 class="h3 text-center my-4">Log into an existing account</h3>
+<form method="post" class="text-center">
+    {% csrf_token %}
+    <input class="form-control mx-auto w-50 my-3" name="username" type="text" placeholder="Enter Username">
+    <input class="form-control mx-auto w-50 my-3" name="password" type="password" placeholder="Enter Password">
+
+    <input class="btn btn-primary my-2" style="width:100px;" type="submit" value="Log In">
+    <p class="text-light">Don't have an Account? <a class="link-light" href="{% url 'register' %}">Click Here!</a></p>
+</form>
+{% endblock %}

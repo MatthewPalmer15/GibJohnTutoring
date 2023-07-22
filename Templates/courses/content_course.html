@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{course.title}}{% endblock %} 
+{% block content %}
+
+<!-- Displays the course title, and content -->
+<div class="d-block text-center">
+    <h3 class="h3 fw-bold">{{course.title}}</h3>
+</div>
+<div class="d-block my-3">
+    <span class="fs-6">{{course.content|safe}}</span>
+</div>
+
+<!-- Two buttons for going back to the overview, or forward to the assessment -->
+<a class="btn btn-secondary" href="{% url 'course_overview' course.course_id %}">Back</a>
+<a class="btn btn-primary" href="{% url 'course_questions' course.course_id %}">Continue</a>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{award.course_id.title}}{% endblock %} 
+{% block content %}
+
+<!-- Display for User Marks / Total Marks and the percentage the user got right -->
+<div class="container text-center">
+    <div class="my-4">
+        <h3 class="fw-bold">You scored {{award.user_marks}} / {{award.total_marks}}</h3>
+        <h4>{{award.percentage}}% of answers were correct</h4>
+    </div>
+
+    <!-- If/Else Statement to display the correct image of trophy that they have earned -->
+    <div class="container">
+        {% if award.trophy == "gold" %}
+        <img src="{% static 'images/trophy/gold.png' %}" width="200px !important;">
+        {% elif award.trophy == "silver" %}
+        <img src="{% static 'images/trophy/silver.png' %}" width="200px !important;">
+        {% elif award.trophy == "bronze" %}
+        <img src="{% static 'images/trophy/bronze.png' %}" width="200px !important;">
+        {% endif %}
+    </div>
+
+    <!-- Message for the user stating if they have earned a trophy or not -->
+    <div class="my-4">
+        {% if award.trophy != "none" %}
+            <h4>You Earned a {{award.trophy|capfirst }} Trophy!</h4>
+        {% else %}
+            <h4>You didn't get a Trophy, better luck next time</h4>
+        {% endif %}
+        <h6>Completed: {{award.completion_date}}</h6>
+    </div>
+    
+    <!-- Button to return to the home page -->
+    <a class="btn btn-primary" href="{% url 'index' %}" style="width:100px;">Finish</a>
+</div>
+{% endblock %}

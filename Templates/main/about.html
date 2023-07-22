@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About{% endblock %} 
+{% block content %}
+
+<!-- Paragraph about the business culture of GibJohn Tutoring -->
+<span class="fs-5 d-block mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id diam vitae lectus pellentesque efficitur 
+ut tempus velit. Sed tellus mi, congue vitae pharetra pellentesque, hendrerit ut mi. Aenean non pellentesque metus, nec blandit tellus. 
+Vivamus gravida at dolor eu volutpat. Curabitur porta arcu est, id rhoncus lorem maximus ultrices. Curabitur tortor magna, fermentum eu 
+lacinia et, tempor efficitur dui. Duis facilisis scelerisque vulputate. Ut accumsan, urna eu sagittis viverra, neque eros scelerisque 
+nisi, vitae blandit odio turpis nec ante. Morbi imperdiet feugiat diam in pulvinar.</span>
+
+<!-- 3 Cards with different reviews from customers of GibJohn Tutoring -->
+<div class="container">
+    <div class="row row-cols-auto text-center">
+        <div class="col my-3">
+            <div class="card bg-light text-dark border-0 rounded-3" style="width: 25rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Supportive with my Learning</h5>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                    <p class="card-text">GibJohn Tutoring has supported my learning at school and has pushed me beyond that I thought</p>
+                    <span class="text-secondary">- Jamie Hanson</span>
+                </div>
+            </div>
+        </div>
+        <div class="col my-3">
+            <div class="card bg-light text-dark border-0 rounded-3" style="width: 25rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Amazing Tutors that support you</h5>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <p class="card-text">The Tutors are amazing and really support your weakest areas</p>
+                    <span class="text-secondary">- Lauren Wilkinson</span>
+                </div>
+            </div>
+        </div>
+        <div class="col my-3">
+            <div class="card bg-light text-dark border-0 rounded-3" style="width: 25rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Great for Extra Study</h5>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                    <p class="card-text">GibJohn Tutoring has really helped me work on my revision and has helped my understanding</p>
+                    <span class="text-secondary">- Chris Ford</span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{course.title}}{% endblock %} 
+{% block content %}
+
+<!-- Overview of a course, showing the title, description and image -->
+<div class="container my-5">
+    <div class="row row-cols-lg-2 row-cols-sm-1">
+        <div class="col-sm my-2">
+            <!-- Display course image if it exists, if not it will display a placeholder -->
+            {% if course.image %}
+                <img class="img-fluid w-100" src="/{{course.image}}">
+            {% else %}
+                <img class="img-fluid w-100" src="{% static 'images/website/course_placeholder.jpg' %}">
+            {% endif %}
+        </div>
+        <div class="col-sm my-2 text-center text-break">
+            <div class="d-block">
+                <h3 class="h3 fw-bold">{{course.title}}</h3>
+            </div>
+            <div class="d-block my-3">
+                <span class="fs-6">{{course.description|safe}}</span>
+            </div>
+            <!-- Buttons to go back to viewing all courses, or to begin the course -->
+            <a class="btn btn-secondary" href="{% url 'view_courses' %}">Back</a>
+            <a class="btn btn-primary" href="{% url 'course_content' course.course_id %}">Start Course</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

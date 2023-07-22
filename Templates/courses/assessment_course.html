@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{course.title}}{% endblock %} 
+{% block content %}
+
+<!-- Assessment Form with all Questions related to the course -->
+<form method="post">
+    {% csrf_token %}
+    {% for question in questions %}
+        <!-- Display the Question itself -->
+        <h4 class="fs-5 fw-bold my-3">{{ question.question }}</h4>
+        <!-- Option 1 response to Question -->
+        <div class="d-block">
+            <input class="form-check-input" type="radio" name="{{question.question}}" id="{{question.option_1}}" value="{{question.option_1}}">
+            <label class="form-check-label" for="{{question.option_1}}">{{question.option_1}}</label>
+        </div>
+        <!-- Option 2 response to Question -->
+        <div class="d-block">
+            <input class="form-check-input" type="radio" name="{{question.question}}" id="{{question.option_2}}" value="{{question.option_2}}">
+            <label class="form-check-label" for={{question.option_2}}>{{question.option_2}}</label>
+        </div>
+        <!-- Option 3 response to Question -->
+        <div class="d-block">
+            <input class="form-check-input" type="radio" name="{{question.question}}" id="{{question.option_3}}" value="{{question.option_3}}">
+            <label class="form-check-label" for="{{question.option_3}}">{{question.option_3}}</label>
+        </div>
+        <!-- Option 4 response to Question -->
+        <div class="d-block">
+            <input class="form-check-input" type="radio" name="{{question.question}}" id="{{question.option_4}}" value="{{question.option_4}}">
+            <label class="form-check-label" for="{{question.option_4}}">{{question.option_4}}</label>
+        </div>
+    {% endfor %}
+    <!-- Button for the user to click after they have completed their assessment -->
+    <input class="btn btn-primary my-3" style="width:250px;" type="submit" value="Complete Assessment">
+</form>
+{% endblock %}
